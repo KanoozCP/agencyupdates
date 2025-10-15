@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Central Planning - Agency Updates</title>
+
+  <style>
+    :root{
+      --kcp-indigo:#1e3a8a;
+      --kcp-blue:#2563eb;
+      --kcp-orange:#f97316;
+      --kcp-gradient: linear-gradient(135deg, var(--kcp-indigo), var(--kcp-blue), var(--kcp-orange));
+      --kcp-border:#e5e7eb;
+      --kcp-text:#1f2937;
+      --kcp-bg:#ffffff;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      font-family:'Poppins',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:var(--kcp-bg);
+      color:var(--kcp-text);
+      line-height:1.6;
+      min-height:100vh;
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    header#kcpHeader{
+      position:sticky; top:0; z-index:1001; background:transparent;
+      transition:transform .25s ease, opacity .2s ease;
+      will-change:transform,opacity;
+    }
+    header#kcpHeader.is-hidden{transform:translateY(-120%);opacity:0;pointer-events:none}
+    .header-inner{
+      max-width:1200px; margin:0 auto; padding:16px 28px;
+      display:flex; align-items:center; position:relative; gap:20px;
+    }
+    .brand{display:inline-flex;align-items:center;flex:0 0 auto}
+    .brand img{height:150px;object-fit:contain;transition:transform .3s ease}
+    .brand img:hover{transform:scale(1.04)}
+
+    .title-pill{
+      position:absolute; left:50%; transform:translateX(-50%);
+      display:inline-flex; align-items:center; gap:12px;
+      padding:14px 28px; border-radius:16px;
+      background:var(--kcp-gradient); background-size:200% 200%;
+      animation:kcpGrad 6s ease infinite;
+      color:#fff; font-weight:800; font-size:clamp(18px,2.6vw,28px);
+      letter-spacing:.2px; line-height:1.2; white-space:nowrap;
+      box-shadow:0 8px 24px rgba(0,0,0,.15);
+    }
+
+    @keyframes kcpGrad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+    main{max-width:1200px;margin:0 auto;padding:40px 20px;position:relative;z-index:1;text-align:center;}
+    h2{
+      margin-bottom:40px;
+      font-size:1.8rem;
+      font-weight:700;
+      color:var(--kcp-indigo);
+      border-bottom:3px solid var(--kcp-blue);
+      display:inline-block;
+      padding-bottom:8px;
+    }
+
+    /* Refined clean corporate grid for agency cards */
+    .card-row{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:28px;
+      justify-items:center;
+      margin-top:30px;
+    }
+
+    .card{
+      width:100%;
+      max-width:240px;
+      background:#fff;
+      border:1px solid var(--kcp-border);
+      border-radius:14px;
+      padding:24px 16px;
+      text-align:center;
+      box-shadow:0 4px 12px rgba(0,0,0,.08);
+      transition:all .25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:var(--kcp-gradient);
+      background-size:200% 200%;
+      animation:kcpGrad 8s ease infinite;
+      opacity:0;
+      transform:scale(1.05);
+      transition:opacity .35s ease,transform .35s ease;
+      z-index:0;
+      border-radius:inherit;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 10px 28px rgba(0,0,0,.15);
+    }
+    .card:hover::before{opacity:1;transform:scale(1);}
+    .card a{
+      position:relative;
+      z-index:1;
+      display:block;
+      text-decoration:none;
+      color:var(--kcp-text);
+      font-size:1.1rem;
+      font-weight:600;
+      transition:color .3s ease;
+    }
+    .card:hover a{color:#fff;}
+
+    footer{text-align:center;margin-top:50px;padding:20px;font-size:.9rem;color:#6b7280;position:relative;z-index:1}
+    footer::before{content:"";display:block;width:80px;height:3px;margin:0 auto 15px;background:var(--kcp-blue);border-radius:10px}
+    .note{margin-top:8px;font-size:.85rem;color:#9ca3af;font-style:italic}
+
+    @media (max-width:720px){
+      .header-inner{padding:12px 16px;gap:12px}
+      .brand img{height:96px}
+      .title-pill{padding:10px 14px;font-size:16px;white-space:normal;text-align:center}
+    }
+    @media (max-width:480px){.brand img{height:76px}}
+
+    @media (prefers-reduced-motion:reduce){
+      header#kcpHeader,.card,.card::before{animation:none;transition:none}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="kcpHeader">
+    <div class="header-inner">
+      <a class="brand" href="https://kanoozcp.github.io/" target="_blank" aria-label="Kanooz Home">
+        <img src="./Central Planning - Kanooz_files/Dept Logo Transparent.png" alt="Kanooz Logo">
+      </a>
+
+      <h1 class="title-pill" role="heading" aria-level="1">
+        <span class="title-text">CENTRAL PLANNING DEPARTMENT</span>
+      </h1>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main>
+    <h2>Agency Updates</h2>
+    <div class="card-row">
+      <div class="card"><a href="https://kanooz365-my.sharepoint.com/:x:/g/personal/naved_kanooz_com/ERoXha76GIhBpVYYLefusTkB8TLjSloSp7UeAvlEMBmv8w?e=ZlDfAJ">ASIAPOWER</a></div>
+      <div class="card"><a href="https://kanooz365-my.sharepoint.com/:x:/g/personal/naved_kanooz_com/EVkb0CeoYhtOoVOQa2fXxawBmvnxZZPYEqxUpGT32msaNw?e=wkiNVN">DSS</a></div>
+      <div class="card"><a href="https://kanooz365-my.sharepoint.com/:x:/g/personal/naved_kanooz_com/EYuAb1dFdqNPm6LiChdZssoBfH_H9TTbVWmafYkU7Hzabw?e=RRQ4lV">GHEEWALA</a></div>
+      <div class="card"><a href="https://kanooz365-my.sharepoint.com/:x:/g/personal/naved_kanooz_com/Ed1vgEGDr_9BtSsQRC8vN_wBEIbVb3dX0wVt9LoRxse88g?e=xQUIMG">ITL</a></div>
+      <div class="card"><a href="https://kanooz365-my.sharepoint.com/:x:/g/personal/naved_kanooz_com/EfKojDxTssFMmsWbthFx4akBpLGGczibhxigmjXdiRgAFA?e=AZtNSj">JALEEL</a></div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Kanooz – Central Planning Department
+    <div class="note">Note: The above links will only work if you have a valid login access.</div>
+  </footer>
+
+  <!-- Header hide on scroll down, show on scroll up -->
+  <script>
+    (function(){
+      const header = document.getElementById('kcpHeader');
+      let lastY = window.scrollY || 0;
+      const THRESHOLD = 6;
+      addEventListener('scroll', () => {
+        const y = window.scrollY || 0;
+        if (y - lastY > THRESHOLD) header.classList.add('is-hidden');
+        else if (lastY - y > THRESHOLD || y < 10) header.classList.remove('is-hidden');
+        lastY = y;
+      }, { passive:true });
+    })();
+  </script>
+</body>
+</html>
